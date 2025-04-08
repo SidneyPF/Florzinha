@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resposta 1</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f7f7f7;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #ff6f61;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+        }
+        .content {
+            text-align: center;
+            margin-top: 50px;
+        }
+        .question-box {
+            margin: 20px;
+            padding: 20px;
+            background-color: white;
+            border: 1px solid #ddd;
+            width: 60%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .btn {
+            padding: 10px 20px;
+            background-color: #ff6f61;
+            color: white;
+            border: none;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        .btn:hover {
+            background-color: #e2574d;
+        }
+        .message {
+            color: red;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Quiz de Perguntas</h1>
+    </header>
+
+    <div class="content">
+        <div class="question-box">
+            <h2>Qual é o meu prato favorito?</h2>
+            <div>
+                <input type="radio" id="option1" name="question2" value="a">
+                <label for="option1">Pizza</label><br>
+                <input type="radio" id="option2" name="question2" value="b">
+                <label for="option2">Sushi</label><br>
+                <input type="radio" id="option3" name="question2" value="c">
+                <label for="option3">Churrasco</label><br>
+                <input type="radio" id="option3" name="question2" value="d">
+                <label for="option3">Strogonoff</label><br>
+            </div>
+            <button class="btn" onclick="checkAnswer()">Responder</button>
+            <p id="error-message" class="message"></p>
+        </div>
+    </div>
+
+    <script>
+        function checkAnswer() {
+            let selectedOption = document.querySelector('input[name="question2"]:checked');
+            
+            if (!selectedOption) {
+                alert("Escolha uma alternativa!");
+                return;
+            }
+
+            let correctAnswer = "c"; // Resposta correta 
+            let errorMessage = document.getElementById("error-message");
+
+            if (selectedOption.value === correctAnswer) {
+                window.location.href = "terceiro.html"; // Próxima pergunta
+            } else {
+                errorMessage.textContent = "Oxi denovo? Você errou! Tente novamente!";
+            }
+        }
+    </script>
+</body>
+</html>
